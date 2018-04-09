@@ -26,17 +26,21 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-preset-stage-1": "^6.1.18",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.0",
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "react-redux": "4.4.1",
-    "react-router": "^2.0.1",
+    "react-redux": "^4.4.1",
+    "react-router": "^4.2.0",
+    "react-router-config": "^1.0.0-beta.4",
     "react-router-dom": "^4.0.0",
-    "redux": "^3.0.4",
+    "redux": "^3.7.2",
     "redux-form": "^7.2.0",
     "redux-form-material-ui": "^5.0.0-beta.2",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "vizceral-react": "^4.5.3"
   }
 }

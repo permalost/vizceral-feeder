@@ -11,6 +11,7 @@ import reducers from './reducers';
 import ConnectionList from './containers/connection_list_display';
 import NodeList from './containers/node_list_display';
 import VizceralGraphData from './containers/vizceral_json_display';
+import Vizceral from './containers/vezceral_wrapper';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -23,7 +24,7 @@ ReactDOM.render(
           <Route path="/connections" component={ConnectionList} />
           <Route path="/nodes" component={NodeList} />
           <Route path="/graph-data" component={VizceralGraphData} />
-          <Route path="/" component={VizceralGraphData} />
+          <Route path="/" component={Vizceral} />
         </Switch>
       </BrowserRouter>
     </Provider>

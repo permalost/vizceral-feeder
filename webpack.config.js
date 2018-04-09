@@ -25,7 +25,7 @@ module.exports = {
     contentBase: './',
 	proxy: {
 		'/api/**': {
-			target: 'http://elasticsearch-server:9200/', 
+			target: 'http://elastic-search-server:9200/', 
 			pathRewrite: {'^/api': ''}
 		}
 	}
