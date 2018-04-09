@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Node from '../components/node_display';
-import { fetchEverything } from '../actions';
+import { fetchSampleData } from '../actions';
 
 class NodeList extends Component {
     componentWillMount() {
-        this.props.fetchEverything();
+        this.props.fetchSampleData();
     }
 	
     render() {
@@ -24,4 +24,4 @@ function mapStateToProps({ nodes }) {
     return { nodes };
 }
 
-export default connect(mapStateToProps, { fetchEverything })(NodeList);
+export default connect(mapStateToProps, { fetchSampleData })(NodeList);

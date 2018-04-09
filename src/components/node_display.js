@@ -9,6 +9,6 @@ class NodeDisplay extends Component {
             </div>
         );
     }
-}
+};
 
 export default NodeDisplay;

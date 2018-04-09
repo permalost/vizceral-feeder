@@ -20,8 +20,8 @@ class ConnectionDisplay extends Component {
                     </ul>
                 </div>
             </div>
-        )
+        );
     }
-}
+};
 
 export default ConnectionDisplay;

@@ -1,10 +1,11 @@
-import { IDENTIFIED_NODE, FETCH_EVERYTHING } from '../actions';
+import { IDENTIFIED_NODE, FETCH_SAMPLE_DATA, FETCH_TRAFFIC } from '../actions';
 
 export default function (state = nodes, action) {
     switch(action.type) {
         case IDENTIFIED_NODE:
             return { ...state, [action.payload.name]:action.payload }; 
-        case FETCH_EVERYTHING:
+        case FETCH_SAMPLE_DATA:
+		case FETCH_TRAFFIC:
             return { ...state, ...(_.mapKeys(extractMetrics(action.payload.data), 'name'))};
         default:
             return state;

@@ -1,11 +1,13 @@
 import _ from 'lodash';
-import { IDENTIFIED_CONNECTION, FETCH_EVERYTHING } from '../actions';
+import { IDENTIFIED_CONNECTION, FETCH_SAMPLE_DATA, FETCH_TRAFFIC } from '../actions';
 
 export default function (state = {}, action) {
     switch(action.type) {
         case IDENTIFIED_CONNECTION:
             return { ...state, [action.payload.source + ':' + action.payload.target]:action.payload };
-        case FETCH_EVERYTHING:
+        case FETCH_SAMPLE_DATA:
+		case FETCH_TRAFFIC:
+			console.log(action.payload.data);
 			return { ...state, ...(_.mapKeys(extractMetrics(action.payload.data), (connection) => connection.source + ':' + connection.target))};
         default:
             return state;

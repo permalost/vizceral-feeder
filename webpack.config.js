@@ -1,5 +1,6 @@
 module.exports = {
   entry: [
+    'webpack-dev-server/client?http://localhost:8080',
     './src/index.js'
   ],
   output: {
@@ -21,6 +22,12 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+	proxy: {
+		'/api/**': {
+			target: 'http://elasticsearch-server:9200/', 
+			pathRewrite: {'^/api': ''}
+		}
+	}
   }
 };
