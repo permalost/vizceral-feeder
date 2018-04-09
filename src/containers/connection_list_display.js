@@ -18,7 +18,7 @@ class ConnectionList extends Component {
             </div>
         );
     }
-}
+};
 
 function mapStateToProps({ connections }) {
     return { connections };

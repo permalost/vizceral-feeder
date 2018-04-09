@@ -21,7 +21,7 @@ export function identifiedConnection(connection) {
 export const FETCH_EVERYTHING = 'fetch_everything';
 
 export function fetchEverything() {
-    let num = 1;
+    let num = 4;
     const request = axios.get('temp'+ num + '.json');
     
     return {

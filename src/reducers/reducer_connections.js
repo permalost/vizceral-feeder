@@ -1,11 +1,12 @@
+import _ from 'lodash';
 import { IDENTIFIED_CONNECTION, FETCH_EVERYTHING } from '../actions';
 
-export default function (state = sampleConnections, action) {
+export default function (state = {}, action) {
     switch(action.type) {
         case IDENTIFIED_CONNECTION:
             return { ...state, [action.payload.source + ':' + action.payload.target]:action.payload };
         case FETCH_EVERYTHING:
-            console.log(action.payload);
+			return { ...state, ...(_.mapKeys(extractMetrics(action.payload.data), (connection) => connection.source + ':' + connection.target))};
         default:
             return state;
             // case FETCH_POSTS:
@@ -13,6 +14,30 @@ export default function (state = sampleConnections, action) {
     }
 }
 
+function extractMetrics(json) {
+  return [].concat.apply([],json.aggregations.client.buckets.map(client => {
+    let source = client.key_as_string;
+    return client.hosts.buckets.map(host => {
+      let target = host.key;
+      let normal = 0;
+      let danger = 0;
+      let warning = 0;
+      host.responses.buckets.map(response => {
+        response.key < 300 ? normal+= response.doc_count : danger+= response.doc_count;
+        return;
+      });
+      return {
+        "source": source,
+        "target": target,
+        "metrics": {
+          "normal":normal,
+          "danger": danger,
+          "warning": warning
+        }
+      };
+  	});
+  }));
+}
 
 const sampleConnections = {
     'INTERNET:apiproxy-prod': {

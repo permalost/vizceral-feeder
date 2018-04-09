@@ -3,6 +3,11 @@ bundle.js
 npm-debug.log
 .DS_Store
 
+temp*.json
+testQuery
+
 # IntelliJ
 *.iml
 /.idea
+/nbproject
+/nbproject/private/
