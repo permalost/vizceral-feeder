@@ -9,7 +9,7 @@ class NodeList extends Component {
     componentWillMount() {
         this.props.fetchSampleData();
     }
-	
+
     render() {
         let nodes = this.props.nodes;
         return (

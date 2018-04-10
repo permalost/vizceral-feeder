@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Connection from '../components/connection_display';
-import { fetchEsSearch } from '../actions';
+import { fetchSampleData } from '../actions';
 
 class ConnectionList extends Component {
     componentWillMount() {
-        this.props.fetchEsSearch();
+        this.props.fetchSampleData();
     }
 
     render() {
@@ -24,4 +24,4 @@ function mapStateToProps({ connections }) {
     return { connections };
 }
 
-export default connect(mapStateToProps, { fetchEsSearch })(ConnectionList);
+export default connect(mapStateToProps, { fetchSampleData })(ConnectionList);
