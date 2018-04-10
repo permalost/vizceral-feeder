@@ -21,7 +21,7 @@ export function identifiedConnection(connection) {
 export const FETCH_SAMPLE_DATA = 'fetch_everything';
 
 export function fetchSampleData() {
-    let num = 4;
+    let num = 1 + Math.floor(Math.random() * 4);
     const request = axios.get('temp'+ num + '.json');
     
     return {
